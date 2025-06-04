@@ -124,6 +124,18 @@ class TestFraction(unittest.TestCase):
         self.assertFalse(Fraction(1, 3) >= Fraction(1, 2))
         self.assertTrue(Fraction(1, 2) >= 0)
 
+    def test_fraction_value_in_decimal(self):
+        self.assertEqual(Fraction(14, 6).display_the_value_in_decimal(), 2.3333333333333335)
+        self.assertEqual(Fraction(13, 8).display_the_value_in_decimal(), 1.625)
+        self.assertEqual(Fraction(6, 4).display_the_value_in_decimal(), 1.5)
+        self.assertEqual(Fraction(-6, 4).display_the_value_in_decimal(), -1.5) 
+        self.assertEqual(Fraction(43, -5).display_the_value_in_decimal(), -8.6)
+
+    def test_fraction_value_in_decimal_by_zero_raises_error(self):
+        with self.assertRaises(ValueError):
+            Fraction(4, 0).display_the_value_in_decimal()
+            Fraction(2, 0).display_the_value_in_decimal()
+
 
 if __name__ == '__main__':
     unittest.main(argv=['first-arg-is-ignored'], exit=False)

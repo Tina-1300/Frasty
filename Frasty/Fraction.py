@@ -1,5 +1,10 @@
 import math
 
+# Pour la 1.3.0 prendre en charge les float et int pour les fraction car 
+# 4.2 / 6.5  = 0.6461... donc les fraction peuvent être en float 
+
+# Ajouter la convertion de decimal à fraction peut-être
+
 class Fraction:
 
     def __init__(self, numerator:int, denominator:int):
@@ -7,7 +12,12 @@ class Fraction:
             raise ValueError("Denominator cannot be zero")
         self.numerator = numerator
         self.denominator = denominator
-        self._simplify()
+        self._simplify() # simplifier de bases 
+
+    def display_the_value_in_decimal(self):
+        if self.denominator == 0:
+            raise ValueError("Denominateur cannot be zero")
+        return self.numerator / self.denominator 
         
     def _simplify(self):
         if self.numerator == 0:
@@ -56,6 +66,7 @@ class Fraction:
     def __rmul__(self, other):
         return self * other
 
+    # division
     def __truediv__(self, other):
         if isinstance(other, int):
             other = Fraction(other, 1)

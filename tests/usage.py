@@ -64,3 +64,7 @@ print(f"f1 >= 2 ? {f1 >= 2}")
 print("\nTest egalite apres addition :")
 if f1 + f2 == Fraction(29, 15):
     print(f"{f1} + {f2} = 29/15 (correct)")
+
+# This method returns the value of a fraction in decimal
+print(Fraction(14, 6).display_the_value_in_decimal()) # 2.3333333333333335
+print(Fraction(13, 8).display_the_value_in_decimal()) # 1.625
